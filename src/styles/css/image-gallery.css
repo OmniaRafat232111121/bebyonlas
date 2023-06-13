@@ -1,0 +1,41 @@
+.image-gallery {
+    /* Add your desired styles */
+  }
+  
+  /* Customize the individual slide */
+  .image-gallery-slide {
+    /* Add your desired styles */
+  }
+  
+  /* Customize the thumbnail container */
+  .image-gallery-thumbnails {
+    /* Add your desired styles */
+  }
+  
+  /* Customize the individual thumbnail */
+  .image-gallery-thumbnail {
+    /* Add your desired styles */
+  }
+  
+  /* Customize the active thumbnail */
+  .image-gallery-thumbnail.active {
+    /* Add your desired styles */
+  }
+  
+  /* Customize the caption container */
+  .image-gallery-description {
+    /* Add your desired styles */
+  }
+  
+  /* Customize the caption text */
+  .image-gallery-description .image-gallery-description-inner {
+    /* Add your desired styles */
+  }
+
+
+  
+
+.image-gallery-left-nav .image-gallery-svg, .image-gallery-right-nav .image-gallery-svg {
+  height: 40px;
+  width: 35px;
+}
