@@ -7,7 +7,7 @@ import Head from "next/head";
 type Props = {
   url: string;
   title: string;
-  keywords?: string[];
+  keywords?: any;
   date: Date;
   author?: string;
   image?: string;
