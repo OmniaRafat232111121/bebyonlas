@@ -1,3 +1,5 @@
+import { GetStaticPaths, GetStaticProps } from "next";
+import Head from "next/head";
 import Layout from "../../../components/Layout";
 import BasicMeta from "../../../components/meta/BasicMeta";
 import OpenGraphMeta from "../../../components/meta/OpenGraphMeta";
@@ -7,7 +9,16 @@ import config from "../../../lib/config";
 import { countPosts, listPostContent, PostContent } from "../../../lib/posts";
 import { listTags, TagContent } from "../../../lib/tags";
 
-export default function Page({ posts, tags, pagination, page }) {
+type Props = {
+  posts: PostContent[];
+  tags: TagContent[];
+  page: number;
+  pagination: {
+    current: number;
+    pages: number;
+  };
+};
+export default function Page({ posts, tags, pagination, page }: Props) {
   const url = `/posts/page/${page}`;
   const title = "All posts";
   return (
@@ -20,8 +31,8 @@ export default function Page({ posts, tags, pagination, page }) {
   );
 }
 
-export const getStaticProps = async ({ params }) => {
-  const page = parseInt(params.page);
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const page = parseInt(params.page as string);
   const posts = listPostContent(page, config.posts_per_page);
   const tags = listTags();
   const pagination = {
@@ -38,7 +49,7 @@ export const getStaticProps = async ({ params }) => {
   };
 };
 
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const pages = Math.ceil(countPosts() / config.posts_per_page);
   const paths = Array.from(Array(pages - 1).keys()).map((it) => ({
     params: { page: (it + 2).toString() },
