@@ -34,6 +34,7 @@ export const getStaticProps = async ({ params }) => {
     current: page ? parseInt(page) : 1,
     pages: Math.ceil(countPosts(slug) / config.posts_per_page),
   };
+  const props = { posts, tag, pagination };
   if (page) {
     props.page = page;
   }
