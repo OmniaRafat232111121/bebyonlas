@@ -51,5 +51,10 @@
     "ts-jest": "^26.5.4",
     "typescript": "^5.0.3",
     "yaml-loader": "^0.6.0"
+  },
+   "browser": {
+    "fs": false,
+    "os": false,
+    "path": false
   }
 }
