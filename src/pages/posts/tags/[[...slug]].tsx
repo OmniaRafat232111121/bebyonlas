@@ -31,7 +31,7 @@ export default function Index({ posts, tag, pagination, page }: Props) {
   );
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({ params }: any) => {
   const queries = params.slug as string[];
   const [slug, page] = [queries[0], queries[1]];
   const posts = listPostContent(
