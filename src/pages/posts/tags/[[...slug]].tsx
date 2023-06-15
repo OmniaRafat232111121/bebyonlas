@@ -10,6 +10,7 @@ import { getTag, listTags, TagContent } from "../../../lib/tags";
 import Head from "next/head";
 
 type Props = {
+  params: any;
   posts: PostContent[];
   tag: TagContent;
   page?: string;

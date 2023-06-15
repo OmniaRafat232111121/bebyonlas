@@ -12,6 +12,16 @@ export default function PostItem({ post }: Props) {
       <a>
         <Date date={parseISO(post.date)} />
         <h2>{post.title}</h2>
+        <img src={`${post.imageBlack}`}/>
+<h2>{post.title}</h2>
+<ul>
+            {post.cats.map((cat: any, k: any) => (
+              <li key={k}>
+                <img src={cat.image} />
+                <p>{cat.description}</p>
+              </li>
+            ))}
+          </ul>
         <style jsx>
           {`
             a {
