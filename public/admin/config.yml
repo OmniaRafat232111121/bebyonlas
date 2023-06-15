@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: main
+  branch: master
 media_folder: public/images
 public_folder: /images
 publish_mode: editorial_workflow
@@ -139,3 +139,9 @@ collections:
       - label: "Body"
         name: "body"
         widget: "markdown"
+      - label: 'Cats'
+        name: "cats"
+        widget: list
+        fields:
+          - { label: "Image", name: "image", widget: "image"}
+          - { label: "Description", name: "description", widget: "text"}
