@@ -1,40 +1,41 @@
-import { PostContent } from "../lib/posts";
-import Date from "./Date";
-import Link from "next/link";
-import { parseISO } from "date-fns";
+
+
+import React, { useState } from 'react';
+import Image from 'next/image';
+import Skeleton from "../components/Skeleton";
+import { PostContent } from '../lib/posts';
 
 type Props = {
   post: PostContent;
 };
+
 export default function PostItem({ post }: Props) {
+  const [showDetails, setShowDetails] = useState(false);
+
+  const handleToggleDetails = () => {
+    setShowDetails(!showDetails);
+  };
+
   return (
-    <Link href={"/posts/" + post.slug}>
-      <a>
-        <Date date={parseISO(post.date)} />
-        <h2>{post.title}</h2>
-        <img src={`${post.imageBlack}`}/>
-<h2>{post.title}</h2>
-<ul>
-            {post.cats.map((cat: any, k: any) => (
-              <li key={k}>
-                <img src={cat.image} />
-                <p>{cat.description}</p>
-              </li>
-            ))}
-          </ul>
-        <style jsx>
-          {`
-            a {
-              color: #222;
-              display: inline-block;
-            }
-            h2 {
-              margin: 0;
-              font-weight: 500;
-            }
-          `}
-        </style>
-      </a>
-    </Link>
+    <div>
+      <ul>
+        {post.images.map((img: any, k: any) => (
+          <li key={k}>
+            <Image src={img.image} width={400} height={500} alt={img.description} />
+          </li>
+        ))}
+      </ul>
+      <button
+        className="bg-gradient-to-r from-red-600 to-[#bb0004] rounded-full py-2 px-4 mt-4
+             my-2 text-sm text-white hover:bg-purple-700  w-[70%]  m-auto flex flex-row justify-center"
+        onClick={handleToggleDetails}
+      >
+        {showDetails ? "إخفاء التفاصيل" : "عرض التفاصيل"}
+      </button>
+
+      {showDetails && (
+        <Skeleton  selectedItem={post} />
+      )}
+    </div>
   );
 }
