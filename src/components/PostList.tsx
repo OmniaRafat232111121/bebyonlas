@@ -49,8 +49,8 @@ export default function PostList({ posts, images, pagination }: Props) {
           /> */}
         </div>
       </div>
-      <div className=" w-full sm:w-full   md:w-[100%] lg:w-[30%] lg:absolute lg:top-[120px] lg:right-[0px]  bg-gray-200 p-5">
-        <ul className="grid lg:grid-cols-2 md:grid-cols-3 sm:grid-cols-1 gap-4">
+      <div className=" w-full sm:w-full sm:flex sm:justify-center  sm:h-screen md:w-[100%] lg:w-[30%] lg:absolute lg:top-[120px] lg:right-[0px]  bg-gray-200 p-5">
+        <ul className="grid lg:grid-cols-2 md:grid-cols-3 sm:grid-cols-2 gap-4">
           <li>
           <div>
 <Image src={img3} alt="image"  className="rounded-full border-2 border-red-800 hover:opacity-75 transition-opacity duration-300 cursor-pointer"/>
